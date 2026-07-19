@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-ink text-cream font-body;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+/* Signature element: perforated "ticket stub" edge for menu/order cards */
+.ticket {
+  position: relative;
+  background: theme('colors.surface');
+  border-radius: 4px;
+}
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: theme('colors.ink');
+  border-radius: 50%;
+}
+.ticket::before { left: -8px; }
+.ticket::after { right: -8px; }
